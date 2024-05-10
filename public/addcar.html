@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add Car</h1>
+    <br><br>
+    <form>
+        Id: <input type="text" id="carId"><br>
+        Year: <input type="text" id="year"><br>
+        Make: <input type="text" id="make"><br>
+        Model: <input type="text" id="model"><br>
+        <input type="submit" id="addCar" value="Add Car">
+    </form>
+
+    
+
+    <script>
+        const carIdEl = document.getElementById("carId");
+        const yearEl = document.getElementById("year");
+        const makeEl = document.getElementById("make");
+        const modelEl = document.getElementById("model");
+        const addCar = document.getElementById("addCar");
+        
+        addCar.addEventListener('click', (e) => {
+            e.preventDefault();
+            var car = {
+                "carId" : carIdEl.value.trim(),
+                "year" : yearEl.value.trim(),
+                "make" : makeEl.value.trim(),
+                "model" : modelEl.value.trim(),
+            };
+
+
+            fetch("/api/cars", {
+                method: 'POST',
+                headers: {'Content-Type' : 'application/json'},
+                body: JSON.stringify(car)
+            })
+            .then((res)=>res.json())
+            .then((data)=>{
+                console.log("Car Added:", data);
+                carIdEl.value = "";
+                yearEl.value = "";
+                makeEl.value = "";
+        })
+
+        })
+
+      
+    </script>
+</body>
+</html>

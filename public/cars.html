@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All Cars</h1>
+    <br><br>
+    <a href="/addcar">Add Car</a>
+    <br><br>
+    <ul id="cars"></ul>
+    <script>
+        const carsEl = document.getElementById("cars");
+
+        fetch("/api/cars")
+            .then((res)=>res.json())
+            .then((cars)=>{
+            console.log("cars", cars)
+                for (let i = 0; i < cars.length; i++){
+                    console.log(cars[i]);
+                    let carItem = document.createElement("li");
+                    carItem.innerHTML = cars[i].year + " " + cars[i].make + " " + cars[i].model;
+                    carsEl.append(carItem)
+                }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "year": 2018,
+        "make": "Bugatti",
+        "model": "Chiron",
+        "sold": false
+    },
+    {
+        "id": 2,
+        "year": 2001,
+        "make": "Ferrari",
+        "model": "Modena",
+        "sold": true
+    },
+    {
+        "id": 4,
+        "year": 1993,
+        "make": "Mazda",
+        "model": "Rx-7",
+        "sold": true
+    },
+    {
+        "id": "55",
+        "make": "Toyota",
+        "model": "Camry",
+        "year": "1992",
+        "sold": false
+    },
+    {
+        "id": 999,
+        "make": "Jeep",
+        "model": "Wagoneer",
+        "year": "1990",
+        "sold": false
+    }
+]

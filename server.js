@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended:true}));
 
 app.use(logging);
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 //html routes
 app.get('/', (req, res)=>{
